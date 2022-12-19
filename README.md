@@ -36,9 +36,18 @@
  > 머신러닝을 공부하며 만든 과제 및 학회 논문
 
 ## 환경 설정
-     - Pycharm 사용, Anaconda 가상환경 사용
-     - Python Interpreter 경로 Conda환경으로 설정
-     - 각 프로젝트에 사용된 라이브러리 설치
+     - Pycharm 사용, Anaconda 가상환경 사용            
+     
+     - Python Interpreter 경로 Conda환경으로 설정           
+     
+     - numpy, tensorflow, keras, matplotlib, scikit-learn, pandas, opencv 등 각 프로젝트에 사용된 라이브러리 설치
+
+
+
+
+
+
+
      
 ## 본문
 
