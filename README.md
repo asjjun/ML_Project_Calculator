@@ -43,6 +43,10 @@
      - numpy, tensorflow, keras, matplotlib, scikit-learn, pandas, opencv 등 각 프로젝트에 사용된 라이브러리 설치
 
 
+     * 참고: 항성분류 프로젝트와 X-Ray CNN 모두 파일 다운 받고 엑셀파일, npy파일, h5파일을 py파일과 같은경로에 두고 그대로 사용    
+            X-Ray CNN은 원본 이미지 파일이 용량이 커서 numpy 배열로 변환한 npy 파일 첨부
+            원본 이미지 파일은 링크에서 다운로드 > https://drive.google.com/file/d/17MIx12tqVK5BH63hiEIcHiNvQbE2huz-/view?usp=sharing
+            
 
 
 
