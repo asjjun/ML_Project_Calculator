@@ -23,7 +23,7 @@
     <li>
       <a href="#본문">본문</a>
       <ul>
-        <li><a href="#천체-분류">천체 분류</a></li>
+        <li><a href="#항성-분류">항성 분류</a></li>
         <li><a href="#사칙연산-구현">사칙연산 구현</a></li>
         <li><a href="#x-ray-이미지-분류">X-Ray 이미지 분류</a></li>
       </ul>
@@ -51,11 +51,11 @@
      
 ## 본문
 
-<h3>천체 분류</h3>
+<h3>항성 분류</h3>
 
 - 주제 설명\
-\- SDSS(Sloan Digital Sky Survey)에서 측광관측 장비를 통해 100000여개 천체를 촬영한 것을 정리해둔 데이터셋 사용 (kaggle)\
-\- 천체의 기울기와 분광특성, 적색편이 값 등을 통해 별, 은하, 퀘이사로 분류
+\- SDSS(Sloan Digital Sky Survey)에서 측광관측 장비를 통해 100000여개 항성을 촬영한 것을 정리해둔 데이터셋 사용 (kaggle)\
+\- 항성의 기울기와 분광특성, 적색편이 값 등을 통해 별, 은하, 퀘이사로 분류
   * 출처: https://www.kaggle.com/datasets/fedesoriano/stellar-classification-dataset-sdss17
 
 - 입력데이터\
@@ -69,7 +69,7 @@
 \- 각 특성 값의 범위가 다르기때문에 한 특성의 영향을 크게 받는 것을 방지하기위해 StandardScaler()를 사용해 정규화
 
 - Logistic Regression\
-\- 3개의 클래스(별, 항성, 퀘이사)에 따른 다항식의 계수
+\- 3개의 클래스(별, 은하, 퀘이사)에 따른 다항식의 계수
    
    <img width="500px" height = "110px"  src="https://user-images.githubusercontent.com/29851772/208314864-b8706185-e3eb-4c92-ae17-b40707a0dbde.png">
 
