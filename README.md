@@ -89,7 +89,7 @@
    ![image](https://user-images.githubusercontent.com/29851772/208314740-cf5f0e37-cf6a-45e2-8b5a-1e53748c523e.png)
 
 
-
+<br>
 <h3>사칙연산 구현</h3>
   
   머신러닝으로 사칙연산을 구현해도 오차없이 정확한 값을 구할 수는 없다.\
@@ -144,12 +144,49 @@
   
       <img width="800px" height = "370px"  src="https://user-images.githubusercontent.com/29851772/208503793-ac3a1938-96b4-4005-bb31-72c25bfb1a1d.png">
       <img width="800px" height = "370px"  src="https://user-images.githubusercontent.com/29851772/208504167-6ebb490a-511c-4806-9d04-779c9e3e2671.png">
-  
+   
+   - 위 사진은 테스트 데이터를 넣었을때 원래 값과 모델 예측 값이고 아래 사진은 학습할때의 loss 값이다. 
    - 덧셈, 뺄셈 보다는 곱셈, 나눗셈에서 조금 더 오차가 있긴 하지만 전체적으로 잘 맞추는 것을 확인 할 수 있다.     
    - MAE는 평균 절대 오차로 원래값-예측값에 절대값을 씌우고 평균을 구한 값이다. 평균적으로 이 정도의 오차가 발생했다고 보면 된다. 
 
-
+<br>
 <h3>X-Ray 이미지 분류</h3>
+
+   <img width="820px" height = "200px"  src="https://user-images.githubusercontent.com/29851772/208507768-0d361da9-03ce-45a7-899f-8de1d2209bdf.png">
+
+- 주제 설명      
+\- Kaggle에서 위와 같은 골절 및 비골절 X-ray 이미지 자료 수집하여 8392개의 부위 별 데이터로 분류 후 사용            
+\- X-ray 사진의 골절 여부를 간단히 머신러닝으로 판별 가능         
+  * 출처: https://www.kaggle.com/datasets/vuppalaadithyasairam/bone-fracture-detection-using-xrays
+
+- 입출력 데이터  
+
+     <img width="800px" height = "350px"  src="https://user-images.githubusercontent.com/29851772/208508626-ec26b704-3eca-4f9b-9981-f3b75ce2c65d.png">
+   
+   - 처음에 입력되는 데이터는 x-ray 이미지를 로드 후 용량을 줄이기 위해 64x64 픽셀로 resize, 그리고 numpy 배열로 변환 된다.         
+     그리고 픽셀 값을 255로 나눠 0~1사이의 값으로 정규화 시킨 다음 입력 데이터로 사용.         
+   - 전체 구조를 보면 data는 먼저 관절을 분류해주는 모델에 입력된다.             
+     그럼 모델은 x-ray 이미지가 손목 아래쪽 팔 부분인지, 손날 부분인지, 손 부분인지를 판별하여 출력한다.         
+     분류되어 출력된 이미지 데이터는 자신이 해당하는 각 부위별로 학습된 모델에 입력된다.                      
+     2차 모델은 이 x-ray 이미지가 골절 사진인지, 골절되지 않은 사진인지를 판단하여 출력데이터로 나오게된다.
+
+ - 결과
+ 
+    <img width="650px" height = "420px"  src="https://user-images.githubusercontent.com/29851772/208510224-8291a89b-724e-4db1-aa9a-679bcd89fa47.png">
+
+    <img width="600px" height = "450px"  src="https://user-images.githubusercontent.com/29851772/208511003-3273aad7-8b3b-4c01-ae91-4eceab24453f.png">
+    
+   - 왼쪽이 부위 판별 모델의 테스트 값이고 3가지 부위로 분류되기 때문에 0 또는 1 또는 2의 label로 분류       
+     총 테스트데이터 2098개 중 8개를 틀렸다.       
+   - 오른쪽은 골절 판별 모델의 테스트 값이고 골절 혹은 비골절로 분류 되기 때문에 0 또는 1의 label로 분류     
+   - 1번 모델에서 8개가 잘못 넘어왔는데 2번 모델을 통과하고 총 틀린 개수는 6개다. 8개보다 더 많아져야 할 오차 개수가 오히려 줄어서 의아할 수 있다.
+     하지만 2번 모델은 이진분류이기 때문에 골절인지 비골절인지 운이 좋게 맞췄다면 잘못 넘어간 데이터도 맞은걸로 체크되고 제대로 분류되어 넘어간 데이터도 틀릴 수 있다.
+     따라서 앞의 오류 개수와는 상관없이 최종적으로 골절 여부의 오차가 6개라는 뜻이다.
+
+- 최종 정리
+  - 출처 링크에 모든 사진데이터를 그대로 입력으로 넣고 분류과정 없이 학습한 결과가 있는데 80% 정도로 수치가 낮았다.                
+  - 하지만 단순한 input->output 형태가 아닌 모델을 통해 유형별로 분류 한 output 데이터를 새로운 input 데이터로 사용해                       
+    각 유형에 맞게 학습한 모델을 사용해 골절 여부를 판별하게 설계함으로써 정확도를 높일 수 있었다.
 
 
 
