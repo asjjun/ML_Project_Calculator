@@ -28,12 +28,11 @@
         <li><a href="#x-ray-이미지-분류">X-Ray 이미지 분류</a></li>
       </ul>
     </li>
-    <li><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10664524">연구 논문</a></li>
   </ol>
 </details>
 
 ## Introduction
- > 머신러닝을 공부하며 만든 과제 및 학회 논문
+ > 머신러닝을 공부하며 만든 과제
 
 ## 환경 설정
      - Pycharm 사용, Anaconda 가상환경 사용            
